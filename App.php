@@ -18,7 +18,7 @@ class App
       include("views/formulario.php");
   }
 
-  public function guardar(){
+  public function guardar_consulta(){
         $nombre=$_POST['nombre'];
         $apellidos=$_POST['apellidos'];
         $correo=$_POST['correo'];
