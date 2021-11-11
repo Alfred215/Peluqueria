@@ -2,18 +2,46 @@
 
 class App
 {
-  public function run()
-  {
-    session_start();
-    if (isset($_GET['method'])) {
-      $method = $_GET['method'];
-    } else {
-      $method = 'formulario';
+  function __construct()
+    {
+        if (isset($_GET['url']) and !empty($_GET['url'])) {
+            $url = $_GET['url'];
+        } else {
+            $url = 'home';
+        }
+
+        $arguments = explode('/', trim($url, '/'));
+        $controllerName = array_shift($arguments);
+        $controllerName = ucwords($controllerName) . "Controller";
+        if (count($arguments)) {
+            $method =  array_shift($arguments);
+        } else {
+            $method = "index";
+        }
+
+         echo "App - Url: $url <br>";
+        $file = "app/controllers/$controllerName" . ".php";
+        if (file_exists($file)) {
+            require_once $file;
+        } else {
+            header("HTTP/1.0 404 Not Found");
+            die();
+        }
+
+        $controllerObject = new $controllerName;
+        if (method_exists($controllerName, $method)) {
+            $controllerObject->$method($arguments);
+        } else {
+            header("HTTP/1.0 404 Not Found");
+            echo "No encontrado";
+            die();
+        }
     }
 
-    $this->$method();      
-  }
+  
 
+  
+  /*  
   public function formulario(){
       include("../app/controllers/formularioController.php?method=index");
   }
@@ -40,4 +68,5 @@ class App
     $_SESSION['mensaje']=$_POST['mensaje'];
     include("views/mostrar.php");
   }
+  */
 }
