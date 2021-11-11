@@ -1,6 +1,10 @@
 <?php
-class formularioController
+class FormularioController
 {
+    function __construct()
+    {
+        echo "HomeController -> construct <br>";
+    }
     public function recogerTrabajador()
     {
         $_SESSION['nombre_trab']=$_POST['nombre'];
@@ -17,7 +21,7 @@ class formularioController
         require "app/views/mostrar_trabajador.php";  
     }
 
-    public function recogerConsulta()
+    public function index()
     {
         $_SESSION['nombre']=$_POST['nombre'];
         $_SESSION['apellidos']=$_POST['apellidos'];
