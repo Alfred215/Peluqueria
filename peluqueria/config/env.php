@@ -1,3 +1,3 @@
 <?php
-    define ('PATH', '/peluqueria');
+    define ('PATH', '/Peluqueria');
 ?>
