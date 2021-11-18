@@ -1,0 +1,34 @@
+===Base de datos pelu
+
+== Estructura de tabla para la tabla consulta
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**id**//|int(3)|No|
+|nombre|varchar(30)|Sí|NULL
+|apellidos|varchar(60)|Sí|NULL
+|correo|varchar(100)|Sí|NULL
+|asunto|text|Sí|NULL
+|mensaje|text|Sí|NULL
+== Volcado de datos para la tabla consulta
+
+== Estructura de tabla para la tabla trabajador
+
+|------
+|Columna|Tipo|Nulo|Predeterminado
+|------
+|//**id**//|int(11)|No|
+|nombre|varchar(11)|Sí|NULL
+|apellidos|varchar(11)|Sí|NULL
+|dni|varchar(9)|Sí|NULL
+|cuenta|varchar(20)|Sí|NULL
+|correo|varchar(100)|Sí|NULL
+|ss|varchar(30)|Sí|NULL
+|telefono|int(9)|Sí|NULL
+|direccion|varchar(100)|Sí|NULL
+|salario|int(20)|Sí|NULL
+|fecha_nav|date|Sí|NULL
+|categoria|varchar(30)|Sí|NULL
+== Volcado de datos para la tabla trabajador
+

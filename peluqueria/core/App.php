@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 class App
 {
 
@@ -21,8 +23,6 @@ class App
             $method = "index";
         }
 
-         echo "App - Url: $url <br>";
-
         $file = "app/controllers/$controllerName" . ".php";
         if (file_exists($file)) {
             require_once $file;
@@ -31,6 +31,7 @@ class App
             die();
         }
         
+        $controllerName = '\\App\\Controllers\\' . $controllerName;
         $controllerObject = new $controllerName;
         if (method_exists($controllerName, $method)) {
             $controllerObject->$method($arguments);

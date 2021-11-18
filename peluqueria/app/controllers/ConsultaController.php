@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Consulta;
+use App\Models\Trabajador;
+
+require_once "app/models/Consulta.php";
+
 class ConsultaController
 {
 
@@ -10,27 +17,43 @@ class ConsultaController
 
     public function trabajador()
     {
-        $_SESSION['nombre_trab'] = $_POST['nombre_trab'];
-        $_SESSION['apellidos_trab'] = $_POST['apellidos_trab'];
-        $_SESSION['dni_trab'] = $_POST['dni_trab'];
-        $_SESSION['cuenta_trab'] = $_POST['cuenta_trab'];
-        $_SESSION['correo_trab'] = $_POST['correo_trab'];
-        $_SESSION['ss_trab'] = $_POST['ss_trab'];
-        $_SESSION['telefono_trab'] = $_POST['telefono_trab'];
-        $_SESSION['direccion_trab'] = $_POST['direccion_trab'];
-        $_SESSION['salario_trab'] = $_POST['salario_trab'];
-        $_SESSION['fecha_trab'] = $_POST['fecha_trab'];
-        $_SESSION['cat_trab'] = $_POST['cat_trab'];
-        require "app/views/mostrar_trabajador.php";
+        $trab = Trabajador::all();
+        require "app/views/users/employer.php";
+    }
+
+    public function guardarTrabajador(){
+        $trabajor= new Trabajador();
+        $trabajor->nombre = $_POST['nombre_trab'];
+        $trabajor->apellidos = $_POST['apellidos_trab'];
+        $trabajor->dni = $_POST['dni_trab'];
+        $trabajor->cuenta = $_POST['cuenta_trab'];
+        $trabajor->correo = $_POST['correo_trab'];
+        $trabajor->ss = $_POST['ss_trab'];
+        $trabajor->telefono = $_POST['telefono_trab'];
+        $trabajor->direccion = $_POST['direccion_trab'];
+        $trabajor->salario = $_POST['salario_trab'];
+        $trabajor->fecha = $_POST['fecha_trab'];
+        $trabajor->categoria = $_POST['cat_trab'];
+        $trab = Trabajador::all();
+        require "app/views/users/employer.php";       
     }
 
     public function pregunta()
     {
-        $_SESSION['nombre'] = $_POST['nombre'];
-        $_SESSION['apellidos'] = $_POST['apellidos'];
-        $_SESSION['correo'] = $_POST['correo'];
-        $_SESSION['asunto'] = $_POST['asunto'];
-        $_SESSION['mensaje'] = $_POST['mensaje'];
-        require "app/views/mostrar.php";
+        $pregs = Consulta::all();
+        require "app/views/users/question.php";
+    }
+
+    public function guardarPregunta(){
+        
+        $consulta= new Consulta();
+        $consulta->nombre=$_POST['nombre'];
+        $consulta->apellidos = $_POST['apellidos'];
+        $consulta->correo = $_POST['correo'];
+        $consulta->asunto = $_POST['asunto'];
+        $consulta->mensaje = $_POST['mensaje'];
+        $consulta->insert();
+        $pregs = Consulta::all();
+        require "app/views/users/question.php";
     }
 }
