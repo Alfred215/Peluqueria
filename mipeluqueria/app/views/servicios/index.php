@@ -23,15 +23,21 @@
           <th></th>
         </tr>
 
-        <?php foreach ($servicios as $key => $employee) { ?>
+        
+        
+        <?php 
+        
+        // var_dump ($servicios); exit();    
+        
+        foreach ($servicios as $key => $servicio) { ?>
           <tr>
-          <td><?php echo $employee->id ?></td>
-          <td><?php echo $employee->servicio ?></td>
-          <td><?php echo $employee->descripcion ?></td>
-          <td><?php echo $employee->tiempo ?></td>
-          <td><?php echo $employee->precio ?></td>
+          <td><?php echo $servicio->id ?></td>
+          <td><?php echo $servicio->servicio ?></td>
+          <td><?php echo $servicio->descripcion ?></td>
+          <td><?php echo $servicio->tiempo ?></td>
+          <td><?php echo $servicio->precio ?></td>
           <td>
-            <a href="<?= PATH."/user/show/".$user->id ?>" class="btn btn-primary">Ver </a>
+            <a href="<?= PATH."/servicios/show/".$servicio->id ?>" class="btn btn-primary">Ver </a>
           </td>
           </tr>
         <?php } ?>

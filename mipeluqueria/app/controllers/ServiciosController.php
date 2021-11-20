@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 require_once "app/models/Servicios.php";
@@ -19,7 +20,8 @@ class ServiciosController
         //buscar datos
         $servicios = Servicios::all();
         //pasar a la vista
-        require('app/views/user/index.php');
+        // var_dump ($servicios); exit();
+        require('app/views/servicios/index.php');
     }
     
     public function show($args)
@@ -29,6 +31,6 @@ class ServiciosController
         $servicios = Servicios::find($id);
         // var_dump($user);
         // exit();
-        require('app/views/user/show.php');        
+        require('app/views/servicios/show.php');        
     }
 }

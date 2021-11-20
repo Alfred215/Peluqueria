@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use PDO;
@@ -23,13 +24,25 @@ class Servicios extends Model
          //el resultado puede ser tomado usan las funciones de de PDO
          //fetch recoge registro a registro. Si hay muchos requiere un bucle
          //fetch_all recoge arrays
-         $users = $statement->fetchAll(PDO::FETCH_CLASS, Servicios::class);
+
+         $servicios = $statement->fetchAll(PDO::FETCH_CLASS, Servicios::class);
+        //  echo "<pre>";
+        //  var_dump ($servicios); exit();
          //retornar
          return $servicios;       
     }
     public static function find($id){ 
-        //TODO        
+
+        $db = Servicios::db();
+        $statement = $db->prepare('SELECT * FROM servicios WHERE id=:id');
+        $statement->execute(array(':id' => $id));
+        //Para cargar un objeto User debemos usar setFetchMode y fetch
+        $statement->setFetchMode(PDO::FETCH_CLASS, Servicios::class);
+        $servicios = $statement->fetch(PDO::FETCH_CLASS);
+    
+        return $servicios;      
     }
+    
     public function insert(){ 
         //TODO        
     }
