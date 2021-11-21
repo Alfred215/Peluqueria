@@ -12,7 +12,7 @@
   <main role="main" class="container">
     <div class="starter-template">
       <h1>Lista de servicios</h1>
-
+      <p><a href="<?= PATH."/servicios/create/"?>" class="btn btn-primary">Nuevo</a></p>
       <table class="table table-striped table-hover">
         <tr>
           <th>ID</th>
@@ -22,9 +22,7 @@
           <th>PRECIO</th>
           <th></th>
         </tr>
-
-        
-        
+       
         <?php 
         
         // var_dump ($servicios); exit();    
@@ -38,6 +36,8 @@
           <td><?php echo $servicio->precio ?></td>
           <td>
             <a href="<?= PATH."/servicios/show/".$servicio->id ?>" class="btn btn-primary">Ver </a>
+            <a href="<?= PATH."/servicios/edit/".$user->id ?>" class="btn btn-primary">Editar </a>
+            <a href="<?= PATH."/servicios/delete/".$user->id ?>" class="btn btn-primary">Borrar </a>
           </td>
           </tr>
         <?php } ?>

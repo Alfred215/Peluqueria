@@ -54,7 +54,7 @@ COMMIT;
 INSERT INTO `servicios` (`id`, `servicio`, `descripcion`, `tiempo`, `precio`) VALUES
 (1, 'DETOX', 'Descongestiona y equilibra cabello', '50', '60'),
 (2, 'RESTAURADOR', 'Recupera y fortalece el cabello', '30', '50'),
-(3, 'INFOACTIVO', 'Actúa en la raíz', '30', '70'),
-(4, 'PROTEÍNAS', 'Rellena de materia el cabello', '50', '100'),
+(3, 'INFOACTIVO', 'Actua en la raiz', '30', '70'),
+(4, 'PROTEINAS', 'Rellena de materia el cabello', '50', '100'),
 (5, 'DETOX ORO', 'Descongestiona e hidrata cuero cabelludo', '30', '100')
 ;

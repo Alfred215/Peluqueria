@@ -24,6 +24,23 @@ class ServiciosController
         require('app/views/servicios/index.php');
     }
     
+    public function create()
+    {
+        require 'app/views/servicios/create.php';
+    }
+
+    public function store()
+    {
+        $servicios = new Servicios();
+        $servicios->id = $_REQUEST['id'];
+        $servicios->servicio = $_REQUEST['servicio'];
+        $servicios->descripcion = $_REQUEST['descripcion'];
+        $servicios->tiempo = $_REQUEST['tiempo'];
+        $servicios->precio = $_REQUEST['precio'];
+        $servicios->insert();
+        header('Location:'.PATH.'/servicios');
+    }
+
     public function show($args)
     {
         // $id = (int) $args[0];
@@ -33,4 +50,31 @@ class ServiciosController
         // exit();
         require('app/views/servicios/show.php');        
     }
+
+    public function edit($arguments)
+    {
+        $id = (int) $arguments[0];
+        $servicios = Servicios::find($id);
+        require 'app/views/servicios/edit.php';
+    }
+    
+    public function update()
+    {
+        $id = $_REQUEST['id'];
+        $servicios->id = $_REQUEST['id'];
+        $servicios->servicio = $_REQUEST['servicio'];
+        $servicios->descripcion = $_REQUEST['descripcion'];
+        $servicios->tiempo = $_REQUEST['tiempo'];
+        $servicios->precio = $_REQUEST['precio'];
+        $servicios->save();
+        header('Location:'.PATH.'/servicios');
+    }
+
+    public function delete($arguments)
+    {
+        $id = (int) $arguments[0];
+        $servicios = Servicios::find($id);
+        $servicios->delete();
+        header('Location:'.PATH.'/servicios');
+    }   
 }
