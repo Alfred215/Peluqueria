@@ -24,17 +24,12 @@ class Trabajador extends Model{
 
     public function insert(){
         $consulta=Trabajador::db();
-        $cnslt = $consulta->prepare('INSERT INTO trabajador(nombre, apellidos, dni, cuenta, correo, ss, telefono, salario, fecha_nav, categoria) VALUES(:nombre, :apellidos, :dni, :cuenta, :correo, :ss, :telefono, :direccion, :salario, :fecha_nav, :categoria)');
+        $cnslt = $consulta->prepare('INSERT INTO trabajador(nombre, apellidos, dni, correo, telefono, categoria) VALUES(:nombre, :apellidos, :dni, :correo, :telefono, :categoria)');
         $cnslt->bindValue(':nombre', $this->nombre);
         $cnslt->bindValue(':apellidos', $this->apellidos);
         $cnslt->bindValue(':dni', $this->dni);
-        $cnslt->bindValue(':cuenta', $this->cuenta);
         $cnslt->bindValue(':correo', $this->correo);
-        $cnslt->bindValue(':ss', $this->ss);
         $cnslt->bindValue(':telefono', $this->telefono);
-        $cnslt->bindValue(':direccion', $this->direccion);
-        $cnslt->bindValue(':salario', $this->salario);
-        $cnslt->bindValue(':fecha_nav', $this->fecha);
         $cnslt->bindValue(':categoria', $this->categoria);
         return $cnslt->execute();
     }
