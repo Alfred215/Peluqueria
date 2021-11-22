@@ -36,8 +36,8 @@
           <td><?php echo $servicio->precio ?></td>
           <td>
             <a href="<?= PATH."/servicios/show/".$servicio->id ?>" class="btn btn-primary">Ver </a>
-            <a href="<?= PATH."/servicios/edit/".$user->id ?>" class="btn btn-primary">Editar </a>
-            <a href="<?= PATH."/servicios/delete/".$user->id ?>" class="btn btn-primary">Borrar </a>
+            <a href="<?= PATH."/servicios/edit/".$servicio->id ?>" class="btn btn-primary">Editar </a>
+            <a href="<?= PATH."/servicios/delete/".$servicio->id ?>" class="btn btn-primary">Borrar </a>
           </td>
           </tr>
         <?php } ?>

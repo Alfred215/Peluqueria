@@ -62,12 +62,12 @@ class ServiciosController
     public function update()
     {
         $id = $_REQUEST['id'];
-        $servicio->id = $_REQUEST['id'];
+        $servicio = Servicios::find($id);
         $servicio->servicio = $_REQUEST['servicio'];
         $servicio->descripcion = $_REQUEST['descripcion'];
         $servicio->tiempo = $_REQUEST['tiempo'];
         $servicio->precio = $_REQUEST['precio'];
-        $servicios->save();//funcion save en models/servicios.php
+        $servicio->save();//funcion save en models/servicios.php
         header('Location:'.PATH.'/servicios');
     }
 
@@ -75,7 +75,8 @@ class ServiciosController
     {
         $id = (int) $arguments[0];
         $servicio = Servicios::find($id);
-        $servicios->delete();//funcion delete en models/servicios.php 
+        //var_dump($servicio);exit();
+        $servicio->delete();//funcion delete en models/servicios.php 
         header('Location:'.PATH.'/servicios');
     }   
 }
