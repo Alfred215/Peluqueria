@@ -18,7 +18,7 @@ class ServiciosController
     public function index()
     {
         //buscar datos
-        $servicios = Servicios::all();
+        $servicios = Servicios::all(); // esto es un array por eso lo pongo en plurar
         //pasar a la vista
         // var_dump ($servicios); exit();
         require('app/views/servicios/index.php');
@@ -31,13 +31,14 @@ class ServiciosController
 
     public function store()
     {
-        $servicios = new Servicios();
-        $servicios->id = $_REQUEST['id'];
-        $servicios->servicio = $_REQUEST['servicio'];
-        $servicios->descripcion = $_REQUEST['descripcion'];
-        $servicios->tiempo = $_REQUEST['tiempo'];
-        $servicios->precio = $_REQUEST['precio'];
-        $servicios->insert();
+        //echo "hola"; exit(); para saber si llega
+        $servicio = new Servicios();
+        $servicio->id = $_REQUEST['id'];
+        $servicio->servicio = $_REQUEST['servicio'];
+        $servicio->descripcion = $_REQUEST['descripcion'];
+        $servicio->tiempo = $_REQUEST['tiempo'];
+        $servicio->precio = $_REQUEST['precio'];
+        $servicio->insert(); //función insert en models/servicios.php
         header('Location:'.PATH.'/servicios');
     }
 
@@ -45,7 +46,7 @@ class ServiciosController
     {
         // $id = (int) $args[0];
         list($id) = $args;
-        $servicios = Servicios::find($id);
+        $servicio = Servicios::find($id);
         // var_dump($user);
         // exit();
         require('app/views/servicios/show.php');        
@@ -54,27 +55,27 @@ class ServiciosController
     public function edit($arguments)
     {
         $id = (int) $arguments[0];
-        $servicios = Servicios::find($id);
+        $servicio = Servicios::find($id);
         require 'app/views/servicios/edit.php';
     }
     
     public function update()
     {
         $id = $_REQUEST['id'];
-        $servicios->id = $_REQUEST['id'];
-        $servicios->servicio = $_REQUEST['servicio'];
-        $servicios->descripcion = $_REQUEST['descripcion'];
-        $servicios->tiempo = $_REQUEST['tiempo'];
-        $servicios->precio = $_REQUEST['precio'];
-        $servicios->save();
+        $servicio->id = $_REQUEST['id'];
+        $servicio->servicio = $_REQUEST['servicio'];
+        $servicio->descripcion = $_REQUEST['descripcion'];
+        $servicio->tiempo = $_REQUEST['tiempo'];
+        $servicio->precio = $_REQUEST['precio'];
+        $servicios->save();//funcion save en models/servicios.php
         header('Location:'.PATH.'/servicios');
     }
 
     public function delete($arguments)
     {
         $id = (int) $arguments[0];
-        $servicios = Servicios::find($id);
-        $servicios->delete();
+        $servicio = Servicios::find($id);
+        $servicios->delete();//funcion delete en models/servicios.php 
         header('Location:'.PATH.'/servicios');
     }   
 }

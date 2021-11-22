@@ -43,13 +43,34 @@ class Servicios extends Model
         return $servicios;      
     }
     
-    public function insert(){ 
-        //TODO        
+    public function insert()
+    {
+        $db = Servicios::db();
+        $stmt = $db->prepare('INSERT INTO servicios(id, servicio, descripcion, tiempo, precio) VALUES(:id, :servicio, :descripcion, :tiempo, :precio)');
+        $stmt->bindValue(':id', $this->id);
+        $stmt->bindValue(':servicio', $this->servicio);
+        $stmt->bindValue(':descripcion', $this->descripcion);
+        $stmt->bindValue(':tiempo', $this->tiempo);
+        $stmt->bindValue(':precio', $this->precio);
+        return $stmt->execute();
     }
+
+    public function save()
+    {
+        $db = Servicios::db();
+        $stmt = $db->prepare('UPDATE servicios SET id = :id, servicio = :servicio, descripcion = :descripcion, tiempo = :tiempo, precio = :precio WHERE id = :id');
+        $stmt->bindValue(':id', $this->id);
+        $stmt->bindValue(':servicio', $this->servicio);
+        $stmt->bindValue(':descripcion', $this->descripcion);
+        $stmt->bindValue(':tiempo', $this->tiempo);
+        $stmt->bindValue(':precio', $this->precio);
+        return $stmt->execute();
+    }
+    
     public function delete(){ 
-        //TODO        
-    }
-    public function save(){ 
-        //TODO        
+        $db = Servicios::db();
+        $stmt = $db->prepare('DELETE FROM servicios WHERE id = :id');
+        $stmt->bindValue(':id', $this->id);
+        return $stmt->execute();
     }
 }

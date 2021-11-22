@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 drop table if exists servicios;
 CREATE TABLE `servicios` (
-  `id` int(11) NOT NULL,
+  `id` integer NOT NULL AUTO_INCREMENT PRIMARY KEY, 
   `servicio` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `tiempo` int(11) NOT NULL,
@@ -42,10 +42,7 @@ CREATE TABLE `servicios` (
 --
 -- Indices de la tabla `trabajador`
 --
-ALTER TABLE `servicios`
-  ADD PRIMARY KEY (`servicio`),
-  ADD UNIQUE KEY `id` (`id`);
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
