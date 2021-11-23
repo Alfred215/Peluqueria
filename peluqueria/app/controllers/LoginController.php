@@ -9,7 +9,7 @@ require_once "app/models/Login.php";
 class LoginController
 {
     function index(){
-        require "app/views/users/login.php"; 
+        require "app/views/login/index.php"; 
     }
 
     function login()
@@ -20,9 +20,9 @@ class LoginController
 
         foreach ($users as $key => $user){
             if($user->users==$usuario && $user->passwords==$contrasena){
-                require "app/views/employer/create.php"; 
+                require "app/views/login/login.php"; 
             }else{
-                require "app/views/users/login.php"; 
+                require "app/views/login/index.php"; 
                 echo "Usuario incorrecto";
             }
         }

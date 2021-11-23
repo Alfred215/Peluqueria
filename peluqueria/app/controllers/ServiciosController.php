@@ -17,11 +17,14 @@ class ServiciosController
 
     public function index()
     {
-        //buscar datos
-        $servicios = Servicios::all(); // esto es un array por eso lo pongo en plurar
-        //pasar a la vista
-        // var_dump ($servicios); exit();
+        $servicios = Servicios::all(); 
         require('app/views/servicios/index.php');
+    }
+
+    public function servicio()
+    {
+        $servicios = Servicios::all(); 
+        require('app/views/servicios/servicio.php');
     }
     
     public function create()
@@ -31,14 +34,13 @@ class ServiciosController
 
     public function store()
     {
-        //echo "hola"; exit(); para saber si llega
         $servicio = new Servicios();
         $servicio->id = $_REQUEST['id'];
         $servicio->servicio = $_REQUEST['servicio'];
         $servicio->descripcion = $_REQUEST['descripcion'];
         $servicio->tiempo = $_REQUEST['tiempo'];
         $servicio->precio = $_REQUEST['precio'];
-        $servicio->insert(); //función insert en models/servicios.php
+        $servicio->insert();
         header('Location:'.PATH.'/servicios');
     }
 
@@ -68,7 +70,7 @@ class ServiciosController
         $servicio->tiempo = $_REQUEST['tiempo'];
         $servicio->precio = $_REQUEST['precio'];
         $servicio->save();//funcion save en models/servicios.php
-        header('Location:'.PATH.'/servicios');
+        header('Location:'.PATH.'/servicios/servicio');
     }
 
     public function delete($arguments)
@@ -77,6 +79,6 @@ class ServiciosController
         $servicio = Servicios::find($id);
         //var_dump($servicio);exit();
         $servicio->delete();//funcion delete en models/servicios.php 
-        header('Location:'.PATH.'/servicios');
+        header('Location:'.PATH.'/servicios/servicio');
     }   
 }

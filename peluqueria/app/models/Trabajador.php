@@ -18,8 +18,14 @@ class Trabajador extends Model{
         return $trab;
     }
 
-    public function find(){
-        
+    public function find($id){
+        $db = Trabajador::db();
+        $statement = $db->prepare('SELECT * FROM trabajador WHERE id=:id');
+        $statement->execute(array(':id' => $id));
+        $statement->setFetchMode(PDO::FETCH_CLASS, Trabajador::class);
+        $trab = $statement->fetch(PDO::FETCH_CLASS);
+    
+        return $trab;     
     }
 
     public function insert(){

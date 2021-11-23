@@ -8,7 +8,7 @@
   <main role="main" class="container">
     <div class="starter-template">
 
-    <h1>Edición de Servicios</h1>
+    <h1>Edición de empleado</h1>
 
     <form method="post" action="<?= PATH."/servicios/update"?>">
         <input type="hidden" name="id"

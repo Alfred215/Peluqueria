@@ -2,15 +2,17 @@
 <html lang="es">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <title>App MVC</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>App MVC</title>
 </head>
 
 <body>
-    <?php require "app/views/parts/header.php" ?>
+    <?php require "app/views/parts/header2.php" ?>
     <h1 style="margin-left: 20px;">Lista de trabajadores</h1>
-    <table border="1" style="margin-left: 20px; float:left">
+    <p style="margin-left: 20px;"><a href="<?= PATH."/employer/create/"?>" class="btn btn-primary">Nuevo</a></p>
+    
+    <table border="1" style="margin-left:20px; float:left">
         <tr>
             <th>Nombre</th>
             <th>Apellidos</th>
@@ -24,12 +26,17 @@
                 <td><?php echo $trabs->nombre ?></td>
                 <td><?php echo $trabs->apellidos ?></td>
                 <td><?php echo $trabs->dni ?></td>
-                <td><?php echo $trabs->correo?></td>
+                <td><?php echo $trabs->correo ?></td>
                 <td><?php echo $trabs->telefono ?></td>
                 <td><?php echo $trabs->categoria ?></td>
-                <td><a href="<?= PATH."/employer/show/".$trabs->id ?>">Ver </a></td>
+                <td>
+                    <a href="<?= PATH . "/employer/edit/" . $trabs->id ?>" class="btn btn-primary">Editar </a>
+                </td>
+                <td>  
+                    <a href="<?= PATH . "/employer/delete/" . $trabs->id ?>" class="btn btn-primary">Borrar </a>
+                </td>
             </tr>
-        <?php }?>
+        <?php } ?>
     </table>
 </body>
 

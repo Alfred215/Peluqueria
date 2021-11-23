@@ -17,6 +17,11 @@ class EmployerController
     public function trabajador()
     {
         $trab = Trabajador::all();
+        require "app/views/employer/employer.php";
+    }
+
+    public function trabajadorPublico(){
+        $trab = Trabajador::all();
         require "app/views/employer/index.php";
     }
 
@@ -30,6 +35,28 @@ class EmployerController
         $trabajor->categoria = $_POST['cat_trab'];
         $trabajor->insert();
         $trab = Trabajador::all();
-        require "app/views/employer/index.php";      
+        require "app/views/employer/employer.php";      
+    }
+
+    public function create()
+    {
+        require 'app/views/employer/create.php';
+    }
+
+    public function show($args)
+    {
+        list($id) = $args;
+        $trab = Trabajador::find($id);
+        require('app/views/employer/show.php');        
+    }
+
+    public function edit()
+    {
+        require 'app/views/employer/edit.php';
+    }
+
+    public function delete()
+    {
+        require 'app/views/employer/employer.php';
     }
 }

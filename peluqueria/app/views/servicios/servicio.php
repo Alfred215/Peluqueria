@@ -3,22 +3,24 @@
 
 <body>
 
-  <?php require "app/views/parts/header.php" ?>
+  <?php require "app/views/parts/header2.php" ?>
 
   <main role="main" class="container">
-    <div class="starter-template" style="margin-left: 20px;">
-      <h1>Lista de servicios</h1>
-      <table border="1" class="table table-striped table-hover">
+    <div class="starter-template">
+      <h1 style="margin-left: 20px;">Lista de servicios</h1>
+      <p style="margin-left: 20px;"><a href="<?= PATH."/servicios/create/"?>" class="btn btn-primary">Nuevo</a></p>
+      <table border="1" class="table table-striped table-hover" style="margin-left: 20px;">
         <tr>
           <th>ID</th>
           <th>SERVICIO</th>
           <th>DESCRIPCION</th>
           <th>TIEMPO</th>
           <th>PRECIO</th>
-          <th></th>
         </tr>
        
-        <?php    
+        <?php 
+        
+        // var_dump ($servicios); exit();    
         
         foreach ($servicios as $key => $servicio) { ?>
           <tr>
@@ -28,7 +30,10 @@
           <td><?php echo $servicio->tiempo ?></td>
           <td><?php echo $servicio->precio ?></td>
           <td>
-            <a href="<?= PATH."/servicios/show/".$servicio->id ?>" class="btn btn-primary">Ver </a>
+            <a href="<?= PATH."/servicios/edit/".$servicio->id ?>" class="btn btn-primary">Editar </a>
+          </td>
+          <td>
+            <a href="<?= PATH."/servicios/delete/".$servicio->id ?>" class="btn btn-primary">Borrar </a>
           </td>
           </tr>
         <?php } ?>

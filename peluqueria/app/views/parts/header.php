@@ -8,7 +8,7 @@
         <a class="nav-link" style="color:white; text-decoration:none;" href="<?= PATH . "/servicios/index" ?>">Servicios</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" style="color:white; text-decoration:none;" href="<?= PATH . "/employer/trabajador" ?>">Trabajadores</a>
+        <a class="nav-link" style="color:white; text-decoration:none;" href="<?= PATH . "/employer/trabajadorPublico" ?>">Trabajadores</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" style="color:white; text-decoration:none;" href="<?= PATH . "/login/index" ?>">Login</a>

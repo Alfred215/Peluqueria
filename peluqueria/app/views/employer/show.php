@@ -3,7 +3,7 @@
 
 <body>
 
-  <?php require "app/views/parts/header.php" ?>
+  <?php require "app/views/parts/header2.php" ?>
 
   <main role="main" class="container">
     <div class="starter-template">

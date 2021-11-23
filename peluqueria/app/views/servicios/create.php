@@ -3,7 +3,7 @@
 
 <body>
 
-  <?php require "app/views/parts/header.php" ?>
+  <?php require "app/views/parts/header2.php" ?>
 
   <main role="main" class="container">
     <div class="starter-template">
@@ -14,23 +14,23 @@
 
     <div class="form-group">
         <label>ID</label>
-        <input type="text" name="id" class="form-control">
+        <input type="text" name="id" class="form-control" required>
     </div>
     <div class="form-group">
         <label>SERVICIO</label>
-        <input type="text" name="servicio" class="form-control">
+        <input type="text" name="servicio" class="form-control" required>
     </div>
     <div class="form-group">
         <label>DESCRIPCION</label>
-        <input type="text" name="descripcion" class="form-control">
+        <input type="text" name="descripcion" class="form-control" required>
     </div>
     <div class="form-group">
         <label>TIEMPO</label>
-        <input type="text" name="tiempo" class="form-control">
+        <input type="number" name="tiempo" class="form-control" required>
     </div>
     <div class="form-group">
         <label>PRECIO</label>
-        <input type="text" name="precio" class="form-control">
+        <input type="number" name="precio" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-default">Enviar</button>
     </form>    
