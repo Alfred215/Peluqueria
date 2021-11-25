@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <?php require "app/views/parts/header2.php" ?>
+    <?php require "app/views/parts/header.php" ?>
     <h1 style="margin-left: 20px;">Lista de trabajadores</h1>
     <p style="margin-left: 20px;"><a href="<?= PATH."/employer/create/"?>" class="btn btn-primary">Nuevo</a></p>
     

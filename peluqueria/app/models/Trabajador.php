@@ -41,10 +41,22 @@ class Trabajador extends Model{
     }
 
     public function save(){
-        
+        $db = Trabajador::db();
+        $stmt = $db->prepare('UPDATE trabajador SET nombre = :nombre, apellidos = :apellidos, dni = :dni, correo = :correo, telefono = :telefono, categoria = :categoria WHERE id = :id');
+        $stmt->bindValue(':id', $this->id);
+        $stmt->bindValue(':nombre', $this->nombre);
+        $stmt->bindValue(':apellidos', $this->apellidos);
+        $stmt->bindValue(':dni', $this->dni);
+        $stmt->bindValue(':correo', $this->correo);
+        $stmt->bindValue(':telefono', $this->telefono);
+        $stmt->bindValue(':categoria', $this->categoria);
+        return $stmt->execute();  
     }
 
     public function delete(){
-        
+        $db = Trabajador::db();
+        $stmt = $db->prepare('DELETE FROM trabajador WHERE id = :id');
+        $stmt->bindValue(':id', $this->id);
+        return $stmt->execute();
     }
 }

@@ -3,48 +3,40 @@
 
 <body>
 
-  <?php require "app/views/parts/header2.php" ?>
+  <?php require "app/views/parts/header.php" ?>
 
-  <main role="main" class="container">
+  <main role="main" class="container" style="margin-left:20px;">
     <div class="starter-template">
 
     <h1>Edición de empleado</h1>
 
-    <form method="post" action="<?= PATH."/servicios/update"?>">
-        <input type="hidden" name="id"
-        value="<?php echo $servicio->id ?>">
-
+    <form method="post" action="<?= PATH."/employer/update"?>">
+        <input type="hidden" name="id" value="<?php echo $trab->id ?>">
     <div class="form-group">
-        <label>ID</label>
-        <input type="text" name="id" class="form-control"
-        value="<?php echo $servicio->id ?>"
-        >
+        <label>Nombre: </label>
+        <input type="text" name="nombre" value="<?php echo $trab->nombre ?>">
     </div>
     <div class="form-group">
-        <label>SERVICIO</label>
-        <input type="text" name="servicio" class="form-control"
-        value="<?php echo $servicio->servicio ?>"
-        >
+        <label>Apellidos: </label>
+        <input type="text" name="apellidos" value="<?php echo $trab->apellidos ?>">
     </div>
     <div class="form-group">
-        <label>DESCRIPCION</label>
-        <input type="text" name="descripcion" class="form-control"
-        value="<?php echo $servicio->descripcion ?>"
-        >
+        <label>DNI: </label>
+        <input type="text" name="dni" value="<?php echo $trab->dni ?>">
     </div>
     <div class="form-group">
-        <label>TIEMPO</label>
-        <input type="text" name="tiempo" class="form-control"
-        value="<?php echo $servicio->tiempo ?>"
-        >
+        <label>Correo: </label>
+        <input type="text" name="correo" value="<?php echo $trab->correo ?>">
     </div>
     <div class="form-group">
-        <label>PRECIO</label>
-        <input type="text" name="precio" class="form-control"
-        value="<?php echo $servicio->precio ?>"
-        >
+        <label>Telefono: </label>
+        <input type="text" name="telefono" value="<?php echo $trab->telefono ?>">
     </div>
-    <button type="submit" class="btn btn-default">Enviar</button>
+    <div class="form-group">
+        <label>Categoría: </label>
+        <input type="text" name="categoria" value="<?php echo $trab->categoria ?>">
+    </div>
+    <button type="submit" >Enviar</button>
     </form>
   </div>
 

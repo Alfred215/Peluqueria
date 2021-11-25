@@ -50,13 +50,34 @@ class EmployerController
         require('app/views/employer/show.php');        
     }
 
-    public function edit()
+    public function edit($arguments)
     {
+        $id = (int) $arguments[0];;
+        $trab = Trabajador::find($id);
         require 'app/views/employer/edit.php';
     }
 
-    public function delete()
+    public function update()
     {
+        $id = $_POST['id'];
+        $trabajador = Trabajador::find($id);
+        $trabajador->nombre = $_POST['nombre'];
+        $trabajador->apellidos = $_POST['apellidos'];
+        $trabajador->dni = $_POST['dni'];
+        $trabajador->correo = $_POST['correo'];
+        $trabajador->telefono = $_POST['telefono'];
+        $trabajador->categoria = $_POST['categoria'];
+        $trabajador->save();
+        $trab = Trabajador::all();
+        require 'app/views/employer/employer.php';
+    }
+
+    public function delete($arguments)
+    {
+        $id = (int) $arguments[0];
+        $servicio = Trabajador::find($id);
+        $servicio->delete();
+        $trab = Trabajador::all();
         require 'app/views/employer/employer.php';
     }
 }

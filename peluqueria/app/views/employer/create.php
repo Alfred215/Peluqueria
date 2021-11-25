@@ -9,14 +9,14 @@
 
 <body>
 
-  <?php require "app/views/parts/header2.php" ?>
+  <?php require "app/views/parts/header.php" ?>
 
   <form method="POST" style="margin-left: 20px; float:left;" action="<?= PATH . "/employer/guardarTrabajador" ?>">
     <label>Nombre: </label><input type="text" value="" name="nombre_trab" required> <br>
     <label>Apellidos: </label><input type="text" value="" name="apellidos_trab" required> <br>
     <label>DNI: </label><input type="text" value="" name="dni_trab" required> <br>
     <label>Correo: </label><input type="text" value="" name="correo_trab" required> <br>
-    <label>Telefono: </label><input type="number" value="" name="telefono_trab" required> <br>
+    <label>Telefono: </label><input type="text" value="" name="telefono_trab" required> <br>
     <label>Categoria: </label><input type="text" value="" name="cat_trab" required> <br>
     <input type="submit" value="Enviar">
   </form>

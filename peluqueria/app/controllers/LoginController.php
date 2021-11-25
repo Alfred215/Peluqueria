@@ -20,6 +20,8 @@ class LoginController
 
         foreach ($users as $key => $user){
             if($user->users==$usuario && $user->passwords==$contrasena){
+                $_SESSION['user']=$usuario;
+                $_SESSION['password']=$contrasena;
                 require "app/views/login/login.php"; 
             }else{
                 require "app/views/login/index.php"; 
@@ -27,4 +29,11 @@ class LoginController
             }
         }
     } 
+
+    function logout(){
+        unset($_SESSION['user']);
+        unset($_SESSION['message']);
+        session_destroy();
+        require "app/views/login/index.php";
+    }
 }

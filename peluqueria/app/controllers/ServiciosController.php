@@ -46,11 +46,8 @@ class ServiciosController
 
     public function show($args)
     {
-        // $id = (int) $args[0];
         list($id) = $args;
         $servicio = Servicios::find($id);
-        // var_dump($user);
-        // exit();
         require('app/views/servicios/show.php');        
     }
 
