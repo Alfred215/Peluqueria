@@ -11,11 +11,16 @@
         <ul>
             <li><strong>Nombre: </strong><?php echo $trab->nombre ?></li>
             <li><strong>Apellidos: </strong><?php echo $trab->apellidos ?></li>
-            <li><strong>Dni: </strong><?php echo $trab->dni ?></li>
             <li><strong>Correo: </strong><?php echo $trab->correo ?></li>
             <li><strong>Telefono: </strong><?php echo $trab->telefono ?></li>
             <li><strong>Categoría: </strong><?php echo $trab->categoria ?></li>
         </ul>
+
+        <h2>Servicios que realiza</h2>
+        <?php    
+        foreach ($servicio as $key => $servicios) { ?>
+          <?php echo $servicios->nombre ?>
+        <?php } ?>
     </div>
 
   </main>

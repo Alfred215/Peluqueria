@@ -3,7 +3,10 @@
 namespace App\Controllers;
 
 require_once "app/models/Servicios.php";
+require_once "app/models/Trabajador.php";
 use App\Models\Servicios;
+use App\Models\Trabajador;
+
 /**
 *
 */
@@ -48,6 +51,7 @@ class ServiciosController
     {
         list($id) = $args;
         $servicio = Servicios::find($id);
+        $trabajador = Trabajador::find_type($id);
         require('app/views/servicios/show.php');        
     }
 
@@ -66,7 +70,7 @@ class ServiciosController
         $servicio->descripcion = $_REQUEST['descripcion'];
         $servicio->tiempo = $_REQUEST['tiempo'];
         $servicio->precio = $_REQUEST['precio'];
-        $servicio->save();//funcion save en models/servicios.php
+        $servicio->save();
         header('Location:'.PATH.'/servicios/servicio');
     }
 
@@ -74,8 +78,7 @@ class ServiciosController
     {
         $id = (int) $arguments[0];
         $servicio = Servicios::find($id);
-        //var_dump($servicio);exit();
-        $servicio->delete();//funcion delete en models/servicios.php 
+        $servicio->delete();
         header('Location:'.PATH.'/servicios/servicio');
     }   
 }

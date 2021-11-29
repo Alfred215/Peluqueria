@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\Servicios;
 use App\Models\Trabajador;
 
+require_once "app/models/Servicios.php";
 require_once "app/models/Trabajador.php";
 
 class EmployerController
@@ -47,6 +49,7 @@ class EmployerController
     {
         list($id) = $args;
         $trab = Trabajador::find($id);
+        $servicio=Servicios::find($trab->id_servicio);
         require('app/views/employer/show.php');        
     }
 

@@ -10,7 +10,6 @@
       <h1>Lista de servicios</h1>
       <table border="1" class="table table-striped table-hover">
         <tr>
-          <th>ID</th>
           <th>SERVICIO</th>
           <th>DESCRIPCION</th>
           <th>TIEMPO</th>
@@ -22,7 +21,6 @@
         
         foreach ($servicios as $key => $servicio) { ?>
           <tr>
-          <td><?php echo $servicio->id ?></td>
           <td><?php echo $servicio->servicio ?></td>
           <td><?php echo $servicio->descripcion ?></td>
           <td><?php echo $servicio->tiempo ?></td>

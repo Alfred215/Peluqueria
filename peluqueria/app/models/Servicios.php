@@ -15,20 +15,11 @@ require_once 'core/Model.php';
 class Servicios extends Model
 {
     public static function all(){ 
-         //obtener conexión
-         $db = Servicios::db();
-         //preparar consulta
-         $sql = "SELECT * FROM servicios";
-         //ejecutar
-         $statement = $db->query($sql); // query para ejecutar la consulta
-         //el resultado puede ser tomado usan las funciones de de PDO
-         //fetch recoge registro a registro. Si hay muchos requiere un bucle
-         //fetch_all recoge arrays
 
+         $db = Servicios::db();
+         $sql = "SELECT * FROM servicios";
+         $statement = $db->query($sql);
          $servicios = $statement->fetchAll(PDO::FETCH_CLASS, Servicios::class);
-        //  echo "<pre>";
-        //  var_dump ($servicios); exit();
-         //retornar
          return $servicios;       
     }
     public static function find($id){ 
@@ -36,7 +27,6 @@ class Servicios extends Model
         $db = Servicios::db();
         $statement = $db->prepare('SELECT * FROM servicios WHERE id=:id');
         $statement->execute(array(':id' => $id));
-        //Para cargar un objeto User debemos usar setFetchMode y fetch
         $statement->setFetchMode(PDO::FETCH_CLASS, Servicios::class);
         $servicios = $statement->fetch(PDO::FETCH_CLASS);
     
@@ -72,5 +62,15 @@ class Servicios extends Model
         $stmt = $db->prepare('DELETE FROM servicios WHERE id = :id');
         $stmt->bindValue(':id', $this->id);
         return $stmt->execute();
+    }
+
+    public static function find_type($id){
+        $db = Servicios::db();
+        $statement = $db->prepare('SELECT * FROM servicios WHERE id=:id');
+        $statement->execute(array(':id' => $id));
+        $statement->setFetchMode(PDO::FETCH_CLASS, Servicios::class);
+        $trab = $statement->fetch(PDO::FETCH_CLASS);
+    
+        return $trab;     
     }
 }

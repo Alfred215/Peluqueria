@@ -7,15 +7,18 @@
 
   <main role="main" class="container">
     <div class="starter-template">
-      <h1>Detalle del servicio <?php echo $servicio->id ?></h1>
+      <h1>Detalle del servicio</h1>
         <ul>
-            <li><strong>ID: </strong><?php echo $servicio->id ?></li>
             <li><strong>SERVICIO: </strong><?php echo $servicio->servicio ?></li>
             <li><strong>DESCRIPCION: </strong><?php echo $servicio->descripcion ?></li>
             <li><strong>TIEMPO: </strong><?php echo $servicio->tiempo ?></li>
-            <li><strong>PRECIO: </strong><?php echo $servicio->precio ?></li>
-            
+            <li><strong>PRECIO: </strong><?php echo $servicio->precio ?></li>   
         </ul>
+        <h2>Trabajadores que realizan este servicio</h2>
+        <?php    
+        foreach ($trabajador as $key => $trab) { ?>
+          <?php echo $trab->nombre ?>
+        <?php } ?>
     </div>
 
   </main>

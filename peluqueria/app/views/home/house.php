@@ -11,9 +11,10 @@
 
     <?php require "app/views/parts/header.php" ?>
 
-    <form action="<?= PATH."/home/insertar"?>" style="margin-left:20px;">
-        <label>Titulo: </label><input type="text" name="titulo" value=""><br>
-        <label>Descripción: </label> <input type="text" name="descripcion" value="" style="width:500px; height:300px;"><br>
+    <form method="POST" action="<?= PATH."/home/update"?>" style="margin-left:20px;">
+        <label>Titulo: </label><input type="text" name="titulo" value="<?php echo $home->titulo ?>"><br>
+        <label>Descripción: </label> <input type="text" name="descripcion" value="<?php echo $home->descripcion ?>" style="width:500px; height:300px;"><br>
+        <input type="submit" value="Enviar">
     </form>
 
 </body>
