@@ -30,14 +30,15 @@ class EmployerController
     }
 
     public function guardarTrabajador(){
-        $trabajor= new Trabajador();
-        $trabajor->nombre = $_POST['nombre_trab'];
-        $trabajor->apellidos = $_POST['apellidos_trab'];
-        $trabajor->id_servicio = $_POST['type_id'];
-        $trabajor->correo = $_POST['correo_trab'];
-        $trabajor->telefono = $_POST['telefono_trab'];
-        $trabajor->categoria = $_POST['cat_trab'];
-        $trabajor->insert();
+        $trabajador= new Trabajador();
+        $trabajador->nombre = $_POST['nombre_trab'];
+        $trabajador->apellidos = $_POST['apellidos_trab'];
+        $trabajador->id_servicio = $_POST['type_id'];
+        echo $trabajador->id_servicio;
+        $trabajador->correo = $_POST['correo_trab'];
+        $trabajador->telefono = $_POST['telefono_trab'];
+        $trabajador->categoria = $_POST['cat_trab'];
+        $trabajador->insert();
         $trab = Trabajador::all();
         $servicio = Servicios::all();
         require "app/views/employer/employer.php";      
