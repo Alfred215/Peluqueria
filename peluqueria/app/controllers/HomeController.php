@@ -22,9 +22,12 @@ class HomeController
 
     public function update(){
         $home = Home::find("1");
+        $res = move_uploaded_file ($_FILES["foto"]["tmp_name"], "subidos/".$_FILES["foto"]["name"]);
         $home->titulo  = $_POST['titulo'];
         $home->descripcion = $_POST['descripcion'];
+        $home->urls = "subidos/".$_FILES["foto"]["name"]; 
         $home->save();
+        
         require "app/views/home/house.php";
     }
 }

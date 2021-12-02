@@ -60,11 +60,10 @@ class Trabajador extends Model{
         return $stmt->execute();
     }
 
-    public static function find_type($id_servicio){
-        echo "hola";
+    public static function find_type($id){
         $db = Trabajador::db();
         $statement = $db->prepare('SELECT * FROM trabajador WHERE id_servicio=:id_servicio');
-        $statement->execute(array(':id_servicio' => $id_servicio));
+        $statement->execute(array(':id_servicio' => $id));
         $statement->setFetchMode(PDO::FETCH_CLASS, Trabajador::class);
         $trab = $statement->fetch(PDO::FETCH_CLASS);
     

@@ -30,10 +30,11 @@ class Home extends Model{
 
     public function save(){
         $consulta=Home::db();
-        $stmt = $consulta->prepare('UPDATE estaciones SET titulo = :titulo, descripcion = :descripcion WHERE id = :id');
+        $stmt = $consulta->prepare('UPDATE estaciones SET titulo = :titulo, descripcion = :descripcion, urls =:urls WHERE id = :id');
         $stmt->bindValue(':id', $this->id);
         $stmt->bindValue(':titulo', $this->titulo);
         $stmt->bindValue(':descripcion', $this->descripcion);
+        $stmt->bindValue(':urls',$this->urls);
         return $stmt->execute();
     }
 }

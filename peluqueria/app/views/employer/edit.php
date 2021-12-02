@@ -21,8 +21,14 @@
         <input type="text" name="apellidos" value="<?php echo $trab->apellidos ?>">
     </div>
     <div class="form-group">
-        <label>DNI: </label>
-        <input type="text" name="dni" value="<?php echo $trab->dni ?>">
+        <label>Servicio: </label>
+        <select class="custom-select"  name="type_id">
+              <?php
+              foreach($servicioType  as $key => $servicio) { 
+                $selected = $trab->id_servicio == $servicio->id ? 'selected' : '';?>
+                <option value="<? echo $servicio->id ?>" <?= $selected ?>> <?php echo $servicio->servicio?></option>
+              <?php } ?>
+        </select>
     </div>
     <div class="form-group">
         <label>Correo: </label>

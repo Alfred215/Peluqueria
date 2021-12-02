@@ -63,14 +63,4 @@ class Servicios extends Model
         $stmt->bindValue(':id', $this->id);
         return $stmt->execute();
     }
-
-    public static function find_type($id){
-        $db = Servicios::db();
-        $statement = $db->prepare('SELECT * FROM servicios WHERE id=:id');
-        $statement->execute(array(':id' => $id));
-        $statement->setFetchMode(PDO::FETCH_CLASS, Servicios::class);
-        $trab = $statement->fetch(PDO::FETCH_CLASS);
-    
-        return $trab;     
-    }
 }

@@ -51,7 +51,7 @@ class ServiciosController
     {
         list($id) = $args;
         $servicio = Servicios::find($id);
-        $trabajador = Trabajador::find_type($id);
+        $trabajador = Trabajador::all();
         require('app/views/servicios/show.php');        
     }
 

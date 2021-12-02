@@ -19,11 +19,13 @@ class EmployerController
     public function trabajador()
     {
         $trab = Trabajador::all();
+        $servicio = Servicios::all();
         require "app/views/employer/employer.php";
     }
 
     public function trabajadorPublico(){
         $trab = Trabajador::all();
+        $servicio = Servicios::all();
         require "app/views/employer/index.php";
     }
 
@@ -31,17 +33,19 @@ class EmployerController
         $trabajor= new Trabajador();
         $trabajor->nombre = $_POST['nombre_trab'];
         $trabajor->apellidos = $_POST['apellidos_trab'];
-        $trabajor->dni = $_POST['dni_trab'];
+        $trabajor->id_servicio = $_POST['type_id'];
         $trabajor->correo = $_POST['correo_trab'];
         $trabajor->telefono = $_POST['telefono_trab'];
         $trabajor->categoria = $_POST['cat_trab'];
         $trabajor->insert();
         $trab = Trabajador::all();
+        $servicio = Servicios::all();
         require "app/views/employer/employer.php";      
     }
 
     public function create()
     {
+        $servicioType= Servicios::all();
         require 'app/views/employer/create.php';
     }
 
@@ -49,7 +53,7 @@ class EmployerController
     {
         list($id) = $args;
         $trab = Trabajador::find($id);
-        $servicio=Servicios::find($trab->id_servicio);
+        $servicio= Servicios::all();
         require('app/views/employer/show.php');        
     }
 
@@ -57,6 +61,7 @@ class EmployerController
     {
         $id = (int) $arguments[0];;
         $trab = Trabajador::find($id);
+        $servicioType= Servicios::all();
         require 'app/views/employer/edit.php';
     }
 
@@ -72,6 +77,7 @@ class EmployerController
         $trabajador->categoria = $_POST['categoria'];
         $trabajador->save();
         $trab = Trabajador::all();
+        $servicio = Servicios::all();
         require 'app/views/employer/employer.php';
     }
 
@@ -81,6 +87,7 @@ class EmployerController
         $servicio = Trabajador::find($id);
         $servicio->delete();
         $trab = Trabajador::all();
+        $servicio = Servicios::all();
         require 'app/views/employer/employer.php';
     }
 }

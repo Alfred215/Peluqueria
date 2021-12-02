@@ -12,6 +12,7 @@
   <?php require "app/views/parts/header.php" ?>
   <h1><?php echo $home->titulo ?> </h1>
         <p><?php echo $home->descripcion ?></p>
+        <img src="<?php echo $home->urls;?>" alt="imagen">
 </body>
 
 </html>
