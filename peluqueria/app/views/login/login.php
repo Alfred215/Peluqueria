@@ -10,7 +10,7 @@
 <body>
 
     <?php require "app/views/parts/header.php" ?>
-
+    <h2>Bienvenido,has entrado como administrador</h2>
 </body>
 
 </html>
