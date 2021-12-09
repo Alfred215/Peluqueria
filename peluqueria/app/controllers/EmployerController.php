@@ -33,12 +33,22 @@ class EmployerController
         $trabajador= new Trabajador();
         $trabajador->nombre = $_POST['nombre_trab'];
         $trabajador->apellidos = $_POST['apellidos_trab'];
-        $trabajador->id_servicio = $_POST['type_id'];
+        $tipos=$_POST['type_id'];
         $trabajador->correo = $_POST['correo_trab'];
         $trabajador->telefono = $_POST['telefono_trab'];
         $trabajador->categoria = $_POST['cat_trab'];
         $trabajador->insert();
         $trab = Trabajador::all();
+        foreach($trab as $key => $trabs){
+            if($trabs->nombre==$trabajador->nombre){
+                foreach($tipos as $key => $tipo){
+                    $trab_serv = new Trabajador();
+                    $trab_serv->employee_id=$trabs->id;
+                    $trab_serv->service_id=$tipo ;
+                    $trab_serv->save_servicio();
+                }
+            }
+        }
         $servicio = Servicios::all();
         require "app/views/employer/employer.php";      
     }
@@ -53,6 +63,7 @@ class EmployerController
     {
         list($id) = $args;
         $trab = Trabajador::find($id);
+        $trab_serv = Trabajador::find_serv();
         $servicio= Servicios::all();
         require('app/views/employer/show.php');        
     }
@@ -71,7 +82,13 @@ class EmployerController
         $trabajador = Trabajador::find($id);
         $trabajador->nombre = $_POST['nombre'];
         $trabajador->apellidos = $_POST['apellidos'];
-        $trabajador->dni = $_POST['dni'];
+        $tipos=$_POST['type_id'];
+        foreach($tipos as $key => $tipo){
+            $trab_serv = new Trabajador();
+            $trab_serv->employee_id=$id;
+            $trab_serv->service_id=$tipo ;
+            $trab_serv->save_servicio();
+        }
         $trabajador->correo = $_POST['correo'];
         $trabajador->telefono = $_POST['telefono'];
         $trabajador->categoria = $_POST['categoria'];
@@ -84,8 +101,8 @@ class EmployerController
     public function delete($arguments)
     {
         $id = (int) $arguments[0];
-        $servicio = Trabajador::find($id);
-        $servicio->delete();
+        $trabajador = Trabajador::find($id);
+        $trabajador->delete();        
         $trab = Trabajador::all();
         $servicio = Servicios::all();
         require 'app/views/employer/employer.php';

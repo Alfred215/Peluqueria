@@ -16,7 +16,6 @@
         <tr>
             <th>Nombre</th>
             <th>Apellidos</th>
-            <th>Servicio</th>
             <th>Correo</th>
             <th>Telefono</th>
             <th>Categoría</th>
@@ -25,9 +24,6 @@
             <tr>
                 <td><?php echo $trabs->nombre ?></td>
                 <td><?php echo $trabs->apellidos ?></td>
-                <td><?php foreach ($servicio as $key => $servicios) { 
-                    if($trabs->id_servicio == $servicios->id){echo $servicios->servicio;} 
-                    }?></td>
                 <td><?php echo $trabs->correo ?></td>
                 <td><?php echo $trabs->telefono ?></td>
                 <td><?php echo $trabs->categoria ?></td>

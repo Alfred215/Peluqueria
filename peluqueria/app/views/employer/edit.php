@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         <label>Servicio: </label>
-        <select class="custom-select"  name="type_id">
+        <select class="custom-select"  name="type_id[]" multiple>
               <?php
               foreach($servicioType  as $key => $servicio) { 
                 $selected = $trab->id_servicio == $servicio->id ? 'selected' : '';?>

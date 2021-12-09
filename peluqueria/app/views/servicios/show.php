@@ -16,12 +16,13 @@
         </ul>
         <h2>Trabajadores que realizan este servicio</h2>
         <ul >
-        <?php    
-        foreach ($trabajador as $key => $trab) { 
-          if($servicio->id == $trab->id_servicio){?>
-
-            <li> <?php echo $trab->nombre; echo " ".$trab->apellidos;?></li>
-        <?php }} ?>
+        <?php  
+        foreach($trab_serv as $key => $serv){
+          foreach ($trab as $key => $trabs) {
+            if($serv->service_id==$servicio->id){ 
+            if($serv->employee_id==$trabs->id){?>
+              <li><?php echo $trabs->nombre." ".$trabs->apellidos; ?></li>
+        <?php }}}} ?>
         </ul>
     </div>
 

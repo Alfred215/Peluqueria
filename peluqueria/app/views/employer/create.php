@@ -14,7 +14,7 @@
   <form method="POST" style="margin-left: 20px; float:left;" action="<?= PATH . "/employer/guardarTrabajador" ?>">
     <label>Nombre: </label><input type="text" value="" name="nombre_trab" required> <br>
     <label>Apellidos: </label><input type="text" value="" name="apellidos_trab" required> <br>
-    <label>Servicio: </label><select name="type_id">
+    <label>Servicio: </label><select name="type_id[]" multiple>
       <?php 
       foreach($servicioType as $key => $servicio){?>
         <option value="<? echo $servicio->id?>"><?php echo $servicio->servicio?></option>

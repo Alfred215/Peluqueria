@@ -18,11 +18,13 @@
 
         <h2>Servicios que realiza</h2>
         <ul>
-        <?php    
-        foreach ($servicio as $key => $servicios) { 
-          if($trab->id_servicio == $servicios->id){?>
-            <li><?php echo $servicios->servicio; ?></li>
-        <?php }} ?> 
+        <?php  
+        foreach($trab_serv as $key => $serv){
+          foreach ($servicio as $key => $servicios) {
+            if($serv->employee_id==$trab->id){
+            if($serv->service_id==$servicios->id){?>
+              <li><?php echo $servicios->servicio; ?></li>
+        <?php }}}} ?>   
         </ul>
     </div>
 
