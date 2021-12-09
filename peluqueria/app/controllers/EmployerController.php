@@ -34,7 +34,6 @@ class EmployerController
         $trabajador->nombre = $_POST['nombre_trab'];
         $trabajador->apellidos = $_POST['apellidos_trab'];
         $trabajador->id_servicio = $_POST['type_id'];
-        echo $trabajador->id_servicio;
         $trabajador->correo = $_POST['correo_trab'];
         $trabajador->telefono = $_POST['telefono_trab'];
         $trabajador->categoria = $_POST['cat_trab'];
