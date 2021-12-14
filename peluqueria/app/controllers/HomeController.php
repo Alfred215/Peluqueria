@@ -3,8 +3,10 @@
 namespace App\Controllers;
 
 require_once "app/models/Home.php";
+require_once "app/models/Servicios.php";
 
 use App\Models\Home;
+use App\Models\Servicios;
 
 class HomeController
 {

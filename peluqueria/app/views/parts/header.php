@@ -1,6 +1,6 @@
-<nav style="background-color:gray; height:50px; margin:20px;" >
+<nav style="background-color:black; height:50px; margin:20px;" >
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul style="list-style-type: none; display: flex; justify-content:space-between; width:500px; font-size:20px; padding-top:12px;">
+    <ul style="list-style-type: none; display: flex; justify-content:space-between; width:500px; font-size:20px; padding-top:12px; margin-left:383px">
       <li class="nav-item active">
         <a class="nav-link" style="color:white; text-decoration:none;" href="<?php echo isset($_SESSION['user']) ? PATH."/home/home": PATH."/home" ?>">Home</a>
       </li>
