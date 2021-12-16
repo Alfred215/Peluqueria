@@ -13,6 +13,7 @@ class HomeController
     public function index()
     {
         $home = Home::find("1");
+        $servicios = Servicios::all();
         require "app/views/home/home.php";
     }
 
