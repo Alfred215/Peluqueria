@@ -68,13 +68,13 @@
       <hr>
       <h2>CONTACTO</h2>
       
-<p>VÍA DE LA HISPANIDAD 110<br>
-50017 ZARAGOZA<br>
+<p>Calle ibón de Catieras 36 (local)<br>
+50011 ZARAGOZA<br>
 ESPAÑA<br>
 –<br>
-976 327 166<br>
+976 897 698 <br>
 –<br>
-HORARIO AGOSTO<br>
+HORARIO<br>
 Lunes - VIERNES: de 09:00 a 20:00<br>
 Sábados: de 09:00 A 14:00<br>
 Domingo: Cerrado<br><br>
