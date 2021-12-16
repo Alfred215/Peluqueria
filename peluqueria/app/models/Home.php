@@ -37,4 +37,15 @@ class Home extends Model{
         $stmt->bindValue(':urls',$this->urls);
         return $stmt->execute();
     }
+
+    public function save_consulta(){
+        $consulta = Home::db();
+        $stmt = $consulta->prepare('INSERT INTO consulta(nombre, apellidos, correo, asunto, mensaje) VALUES(:nombre, :apellidos, :correo, :asunto, :mensaje)');
+        $stmt->bindValue(':nombre', $this->nombre);
+        $stmt->bindValue(':apellidos', $this->apellidos);
+        $stmt->bindValue(':correo', $this->correo);
+        $stmt->bindValue(':asunto', $this->asunto);
+        $stmt->bindValue(':mensaje', $this->mensaje);
+        return $stmt->execute();
+    }
 }

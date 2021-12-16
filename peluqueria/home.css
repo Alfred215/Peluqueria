@@ -2,19 +2,40 @@
     padding: 0px;
     margin: 0px;
 }
+
 html{
     background:url(../peluqueria/subidos/imagen.jpg)no-repeat fixed;
     background-size: 2000px 1000px;
 }
 
 body{
+    height: auto;
     max-width: 1300px;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.24);
 }
 
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+a.nav{
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    width: 200px;
+    color:white; 
+    text-decoration:none;
+}
+
 h1{
-    padding-top: 20px;
+    margin: auto;
+    width: 800px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.205);
+    border-radius: 10px;
     font-size: 50px;
     color: aqua;
     text-align: center;
@@ -56,6 +77,7 @@ img{
     margin-left: 200px;
     margin-bottom: 30px;
     margin-top: 30px;
+    border-radius: 20px;
 }
 
 img.servicios{
@@ -83,9 +105,37 @@ article{
 
 div.servicio{
     width: 470px;
+    margin-bottom: 30px;
 }
 
 div#servicio1{
     margin: auto;
     width: 650px;
+}
+
+footer{
+    width: 1000px;
+    margin: auto;
+    height: 400px;
+}
+
+form{
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.205);
+    width: 335px;
+    margin: auto;
+}
+
+label{
+    margin-right: 30px;
+    font-size: 16px;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+input#boton{
+    font-size: 16px;
 }

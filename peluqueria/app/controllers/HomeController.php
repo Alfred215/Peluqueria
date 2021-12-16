@@ -32,4 +32,14 @@ class HomeController
         
         require "app/views/home/house.php";
     }
+
+    public function consulta(){
+        $home = new Home;
+        $home->nombre = $_POST['nombre'];
+        $home->apellidos = $_POST['apellidos'];
+        $home->correo = $_POST['correo'];
+        $home->asunto = $_POST['asunto'];
+        $home->mensaje = $_POST['mensaje']; 
+        $home->save_consulta();
+    }
 }
