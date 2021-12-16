@@ -17,17 +17,20 @@ class LoginController
         $usuario = $_POST['users'];
         $contrasena = $_POST['passwords']; 
         $users = Login::all();
-
+        $contador=0;
         foreach ($users as $key => $user){
             if($user->users==$usuario && $user->passwords==$contrasena){
                 $_SESSION['user']=$usuario;
                 $_SESSION['password']=$contrasena;
+                $contador++;
                 require "app/views/login/login.php"; 
-            }else{
-                require "app/views/login/index.php"; 
-                echo "Usuario incorrecto";
             }
         }
+        if($contador==0){
+            require "app/views/login/index.php"; 
+            echo "Usuario incorrecto"; 
+        }
+        
     } 
 
     function logout(){
