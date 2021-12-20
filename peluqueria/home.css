@@ -5,7 +5,7 @@
 
 html{
     background:url(../peluqueria/subidos/imagen.jpg)no-repeat fixed;
-    background-size: 2000px 1000px;
+    background-size: 1750px 800px;
 }
 
 body{
@@ -35,7 +35,7 @@ h1{
     background-color: rgba(0, 0, 0, 0.329);
     border-radius: 10px;
     font-size: 50px;
-    color: aqua;
+    color: rgba(0, 255, 255, 0.808);
     text-align: center;
 }
 
@@ -66,13 +66,17 @@ hr{
 }
 
 p{
+    border-radius: 10px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.329);
+    color: white;
     text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 p#parrafo1{
     width: 800px;
-    padding-left: 100px;
+    margin-left: 100px;
 }
 
 img{
